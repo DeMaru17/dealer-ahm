@@ -1,0 +1,75 @@
+database motor:
+id
+nama motor
+kategori 
+Harga motor
+deskripsi
+
+
+database gambar motor:
+id 
+id_motor
+gambar 1
+gambar 2
+gambar 3
+
+
+
+database spesifikasi dimensi:
+id
+id_motor
+panjangxlebarxtinggi
+jarak sumbu roda
+jarak terendah ke tanah
+ketinggian tempat duduk
+berat kosong
+
+
+database spesifikasi mesin:
+id
+id_motor
+tipe mesin
+tipe transmisi
+tipe kopling
+tipe starter
+diameter x langkah
+volume langkah
+daya maksimum
+torsi maksimum
+busi
+sistem bahan bakar
+pengapian
+tipe pendingin
+perbandingan kompresi
+pola perpindahan gigi
+jenis pelumas
+
+
+database rangka
+id
+id_motor
+tipe suspensi depan
+tipe  suspensi belakang
+ukuran ban depan
+ukuran ban belakang
+tipe rem depan
+tipe rem belakang
+
+database kapasitas
+id
+id_motor
+kapasitas tangki bahan bakar
+kapasitas minyak pelumas
+
+database kelistrikan
+id
+id_motor
+tipe baterai atau aki
+sistem pengapian
+tipe busi
+power charger
+
+
+
+
+
