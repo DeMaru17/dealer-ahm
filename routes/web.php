@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 // Default routes
 Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index']);
 
@@ -23,4 +24,7 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logo
 Route::middleware([CheckAuth::class])->group(function () {
     // motor routes
     Route::resource('motor', \App\Http\Controllers\MotorController::class);
+    // gambar motor routes
+    Route::resource('gambar-motor', \App\Http\Controllers\GambarMotorController::class);
 });
+Route::get('get-motor-by-kategori', [\App\Http\Controllers\GambarMotorController::class, 'getMotorByKategori'])->name('get-motor-by-kategori');

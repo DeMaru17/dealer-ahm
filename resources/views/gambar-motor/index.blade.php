@@ -1,40 +1,37 @@
 @extends('layouts.app')
-
 @section('content')
-    
-
 
 {{-- Main table --}}
 <div class="container mt-5 pt-5">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Data Tabel Motor</h4>
+            <h4 class="card-title">Data Tabel Gambar Motor</h4>
         </div>
         <div class="card-body">
-            <a href="{{route('motor.create')}}" class="btn btn-primary mb-3">Add Data</a>
+            <a href="{{route('gambar-motor.create')}}" class="btn btn-primary mb-3">Add Data</a>
             <div class="table-responsive">
                 <table class="table table-striped" id="dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama Motor</th>
-                            <th>Kategori</th>
-                            <th>Harga Motor</th>
-                            <th>Deskripsi</th>
+                            <th>Gambar 1</th>
+                            <th>Gambar 2</th>
+                            <th>Gambar 3</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($motor as $m)
+                        @foreach($gambar as $g)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $m->nama_motor }}</td>
-                            <td>{{ $m->kategori }}</td>
-                            <td>{{ 'Rp ' . number_format($m->harga_motor, 0, ',', '.') }}</td>
-                            <td>{{ $m->deskripsi }}</td>
+                            <td>{{ $g->motor->nama_motor }}</td>
+                            <td><img width="300" height="300" src="{{asset('storage/'. $g->gambar_1)}}" alt=""></td>
+                            <td><img width="300" height="300" src="{{ asset('storage/' . $g->gambar_2) }}" alt=""></td>
+                            <td><img width="300" height="300" src="{{asset('storage/'. $g->gambar_3)}}" alt=""></td>
                             <td class="d-flex align-items-center">
-                                    <a href="{{ route('motor.edit', $m->id) }}" class="btn btn-primary btn-sm mr-2 ">Edit</a>
-                                    <form action="{{ route('motor.destroy', $m->id) }}" method="post">
+                                    <a href="{{ route('gambar-motor.edit', $g->id) }}" class="btn btn-primary btn-sm mr-2 ">Edit</a>
+                                    <form action="{{ route('gambar-motor.destroy', $g->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm mt-n" onclick="confirmDelete(event)">Delete</button>

@@ -1,5 +1,5 @@
 <header class="main_menu home_menu">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light ">
@@ -29,7 +29,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                     <a class="dropdown-item" href="{{route('motor.index')}}">Tambah Motor</a>
-                                    <a class="dropdown-item" href="single-blog.html">Gambar Motor</a>
+                                    <a class="dropdown-item" href="{{{route('gambar-motor.index')}}}">Gambar Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Dimensi Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Mesin Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Rangka Motor</a>
