@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\GambarMotor;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\ValidationException;
 
 
 
@@ -44,77 +45,90 @@ class GambarMotorController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_motor' => 'required|exists:motor,id', // Validate that nama_motor is a valid motor ID
-            'gambar_produk' => 'image|mimes:jpg,jpeg,png|max:2048',
-            'gambar_carousel1' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
-            'gambar_carousel2' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
-            'gambar_carousel3' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
-            'gambar1' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar2' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar3' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar4' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar5' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar6' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar7' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'gambar8' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
 
-        // Find the Motor by ID
-        $motor = Motor::find($request->input('nama_motor'));
 
-        if (!$motor) {
-            return redirect()->back()->withErrors('Motor tidak ditemukan.');
-        }
 
-        // Create a new GambarMotor instance
-        $gambar_motor = new GambarMotor();
-        $gambar_motor->id_motor = $motor->id; // Set the motor ID
+        // Cek apakah ada data gambar motor yang sudah ada untuk id_motor yang diberikan
+        $existingGambarMotor = GambarMotor::where('id_motor', $request->input('nama_motor'))->first();
+        // dd($existingGambarMotor);
 
-        // Create folder with motor name
-        $folder_name = Str::slug($motor->nama_motor); // Use the motor name as the folder name
-        $folder_path = 'public/image/' . $folder_name;
+        if (!$existingGambarMotor) {
+            // Jika belum ada, lakukan proses tambah data seperti biasa
+            $request->validate([
+                'nama_motor' => 'required|exists:motor,id', // Pastikan nama_motor adalah ID motor yang valid
+                'gambar_produk' => 'image|mimes:jpg,jpeg,png|max:2048',
+                'gambar_carousel1' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+                'gambar_carousel2' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+                'gambar_carousel3' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+                'gambar1' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar2' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar3' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar4' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar5' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar6' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar7' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+                'gambar8' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            ]);
 
-        // Create the directory if it doesn't exist
-        if (!Storage::exists($folder_path)) {
-            Storage::makeDirectory($folder_path);
-        }
+            // Temukan motor berdasarkan ID
+            $motor = Motor::find($request->input('nama_motor'));
 
-        // Get the uploaded images
-        $images = [
-            'gambar_produk' => $request->file('gambar_produk'),
-            'gambar_carousel1' => $request->file('gambar_carousel1'),
-            'gambar_carousel2' => $request->file('gambar_carousel2'),
-            'gambar_carousel3' => $request->file('gambar_carousel3'),
-            'gambar_1' => $request->file('gambar1'),
-            'gambar_2' => $request->file('gambar2'),
-            'gambar_3' => $request->file('gambar3'),
-            'gambar_4' => $request->file('gambar4'),
-            'gambar_5' => $request->file('gambar5'),
-            'gambar_6' => $request->file('gambar6'),
-            'gambar_7' => $request->file('gambar7'),
-            'gambar_8' => $request->file('gambar8'),
-        ];
-
-        // Save each image in the corresponding folder
-        foreach ($images as $field => $image) {
-            if ($image) {
-                // Generate a unique filename
-                $filename = $image->getClientOriginalName();
-                // Save the image to the specified folder
-                $path = $image->storeAs($folder_path, $filename);
-                // Remove the 'public/' prefix to store the relative path in the database
-                $gambar_motor->{$field} = str_replace('public/', '', $path);
+            if (!$motor) {
+                return redirect()->back()->withErrors('Motor tidak ditemukan.');
             }
+
+            // Buat folder dengan nama motor
+            $folder_name = Str::slug($motor->nama_motor); // Gunakan nama motor sebagai nama folder
+            $folder_path = 'public/image/' . $folder_name;
+
+            // Buat direktori jika belum ada
+            if (!Storage::exists($folder_path)) {
+                Storage::makeDirectory($folder_path);
+            }
+
+            // Buat instansi baru GambarMotor
+            $gambar_motor = new GambarMotor();
+            $gambar_motor->id_motor = $motor->id; // Setel id motor
+
+            // Ambil gambar yang diunggah
+            $images = [
+                'gambar_produk' => $request->file('gambar_produk'),
+                'gambar_carousel1' => $request->file('gambar_carousel1'),
+                'gambar_carousel2' => $request->file('gambar_carousel2'),
+                'gambar_carousel3' => $request->file('gambar_carousel3'),
+                'gambar_1' => $request->file('gambar1'),
+                'gambar_2' => $request->file('gambar2'),
+                'gambar_3' => $request->file('gambar3'),
+                'gambar_4' => $request->file('gambar4'),
+                'gambar_5' => $request->file('gambar5'),
+                'gambar_6' => $request->file('gambar6'),
+                'gambar_7' => $request->file('gambar7'),
+                'gambar_8' => $request->file('gambar8'),
+            ];
+
+            // Simpan setiap gambar di folder yang sesuai
+            foreach ($images as $field => $image) {
+                if ($image) {
+                    // Buat nama file yang unik
+                    $filename = $image->getClientOriginalName();
+                    // Simpan gambar ke folder yang ditentukan
+                    $path = $image->storeAs($folder_path, $filename);
+                    // Hapus prefix 'public/' untuk menyimpan jalur relatif di database
+                    $gambar_motor->{$field} = str_replace('public/', '', $path);
+                }
+            }
+
+            // Simpan instansi GambarMotor
+            $gambar_motor->save();
+            Alert::success('Success', 'Data Berhasil Ditambahkan');
+            return redirect()->route('gambar-motor.index')->with('success', 'Data gambar motor berhasil ditambahkan!');
+        } else {
+            // Jika data gambar motor sudah ada, lakukan update data
+            Alert::error('Error', 'Data motor sudah ada di database. Silakan coba lagi dengan data motor yang berbeda.');
+            return redirect()->route('gambar-motor.index');
         }
-
-        // Save the GambarMotor instance
-        $gambar_motor->save();
-        Alert::success('Success', 'Data Berhasil Ditambahkan');
-
-        // Redirect to a success page or display a success message
-        return redirect()->route('gambar-motor.index')->with('success', 'Data gambar motor berhasil ditambahkan!');
     }
+
 
 
 
