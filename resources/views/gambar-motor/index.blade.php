@@ -15,9 +15,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Motor</th>
-                            <th>Gambar 1</th>
-                            <th>Gambar 2</th>
-                            <th>Gambar 3</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -26,16 +23,12 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $g->motor->nama_motor }}</td>
-                            <td><img width="300" height="300" src="{{asset('storage/'. $g->gambar_1)}}" alt=""></td>
-                            <td><img width="300" height="300" src="{{ asset('storage/' . $g->gambar_2) }}" alt=""></td>
-                            <td><img width="300" height="300" src="{{asset('storage/'. $g->gambar_3)}}" alt=""></td>
+                            {{-- <td><img width="200" height="200" src="{{asset('storage/'. $g->gambar_1)}}" alt=""></td>
+                            <td><img width="200" height="200" src="{{ asset('storage/' . $g->gambar_2) }}" alt=""></td>
+                            <td><img width="200" height="200" src="{{asset('storage/'. $g->gambar_3)}}" alt=""></td> --}}
                             <td class="d-flex align-items-center">
                                     <a href="{{ route('gambar-motor.edit', $g->id) }}" class="btn btn-primary btn-sm mr-2 ">Edit</a>
-                                    <form action="{{ route('gambar-motor.destroy', $g->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm mt-n" onclick="confirmDelete(event)">Delete</button>
-                                    </form>
+                                    <a href="{{ route('gambar-motor.destroy', $g->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                 
                             </td>  
                         </tr>

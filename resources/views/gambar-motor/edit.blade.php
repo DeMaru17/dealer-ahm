@@ -7,27 +7,26 @@
 <div class="container mt-5 pt-5">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Data Gambar Motor</h4>
+            <h4 class="card-title">Edit Data Gambar Motor</h4>
         </div>
         <div class="card-body">
-            <form action="{{route('gambar-motor.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('gambar-motor.update',$gambar->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
 
                 <div class="form-group">
                     <label for="nama_motor">Kategori Motor</label>
-                    <select class="form-control" name="kategori_motor" id="kategori_motor">
+                    <select class="form-control" name="kategori_motor" id="kategori_motor" @readonly(true)>
                         <option value="">Pilih Kategori Motor</option>
-                        @foreach ($motor as $m )
-                        <option value="{{$m->kategori}}">{{$m->kategori}}</option>
-                            
-                        @endforeach
+                        <option value="{{$gambar->motor->kategori}}" selected>{{$gambar->motor->kategori}}</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
                     <label for="nama_motor">Nama Motor</label>
-                    <select class="form-control" name="nama_motor" id="nama_motor">
+                    <select class="form-control" name="nama_motor" id="nama_motor" readonly>
                         <option value="">Pilih Motor</option>
+                        <option value="{{$gambar->motor->nama_motor}}" selected>{{$gambar->motor->nama_motor}}</option>
                     </select>
                 </div>
 
@@ -37,7 +36,7 @@
                         <input type="file" name="gambar_produk" id="gambar_produk" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar_produk-preview"  alt="">
+                        <img id="gambar_produk-preview" src="{{asset('storage/'.$gambar->gambar_produk)}}" alt="">
                     </div>
                 </div>
 
@@ -47,7 +46,7 @@
                         <input type="file" name="gambar_carousel1" id="gambar_carousel1" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar_carousel1-preview" alt="">
+                        <img id="gambar_carousel1-preview"src="{{asset('storage/'.$gambar->gambar_carousel1)}}" alt="">
                     </div>
                 </div>
 
@@ -57,7 +56,7 @@
                         <input type="file" name="gambar_carousel2" id="gambar_carousel2" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar_carousel2-preview"  alt="">
+                        <img id="gambar_carousel2-preview" src="{{asset('storage/'.$gambar->gambar_carousel2)}}" alt="">
                     </div>
                 </div>
 
@@ -67,7 +66,7 @@
                         <input type="file" name="gambar_carousel3" id="gambar_carousel3" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar_carousel3-preview"  alt="">
+                        <img id="gambar_carousel3-preview" src="{{asset('storage/'.$gambar->gambar_carousel3)}}" alt="">
                     </div>
                 </div>
 
@@ -77,7 +76,7 @@
                         <input type="file" name="gambar1" id="gambar1" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar1-preview"  alt="">
+                        <img id="gambar1-preview" src="{{asset('storage/'.$gambar->gambar_1)}}" alt="">
                     </div>
                 </div>
 
@@ -87,7 +86,7 @@
                         <input type="file" name="gambar2" id="gambar2" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar2-preview"  alt="">
+                        <img id="gambar2-preview" src="{{asset('storage/'.$gambar->gambar_2)}}" alt="">
                     </div>
                 </div>
 
@@ -97,7 +96,7 @@
                         <input type="file" name="gambar3" id="gambar3" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar3-preview"  alt="">
+                        <img id="gambar3-preview" src="{{asset('storage/'.$gambar->gambar_3)}}" alt="">
                     </div>
                 </div>
 
@@ -107,7 +106,7 @@
                         <input type="file" name="gambar4" id="gambar4" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar4-preview"  alt="">
+                        <img id="gambar4-preview" src="{{asset('storage/'.$gambar->gambar_4)}}" alt="">
                     </div>
                 </div>
 
@@ -117,7 +116,7 @@
                         <input type="file" name="gambar5" id="gambar5" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar5-preview"  alt="">
+                        <img id="gambar5-preview" src="{{asset('storage/'.$gambar->gambar_5)}}" alt="">
                     </div>
                 </div>
 
@@ -127,7 +126,7 @@
                         <input type="file" name="gambar6" id="gambar6" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar6-preview"  alt="">
+                        <img id="gambar6-preview" src="{{asset('storage/'.$gambar->gambar_6)}}" alt="">
                     </div>
                 </div>
 
@@ -137,7 +136,7 @@
                         <input type="file" name="gambar7" id="gambar7" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar7-preview"  alt="">
+                        <img id="gambar7-preview" src="{{asset('storage/'.$gambar->gambar_7)}}" alt="">
                     </div>
                 </div>
 
@@ -147,12 +146,11 @@
                         <input type="file" name="gambar8" id="gambar8" class="">
                     </div>
                     <div class="col-sm-6">
-                        <img id="gambar8-preview"  alt="">
+                        <img id="gambar8-preview" src="{{asset('storage/'.$gambar->gambar_8)}}" alt="">
                     </div>
                 </div>
-
                 <a href="{{route('gambar-motor.index')}}" class="btn btn-danger">Kembali</a>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </div>
     </div>

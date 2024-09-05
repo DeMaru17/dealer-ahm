@@ -10,6 +10,8 @@ use App\Models\Rangka;
 use App\Models\Kapasitas;
 use App\Models\Kelistrikan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class MotorController extends Controller
 {
@@ -26,6 +28,9 @@ class MotorController extends Controller
         //     'kelistrikan'
         // ])->get();
         $motor = Motor::all();
+        $title = 'Delete Data!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('motor.index',  compact('motor'));
     }
 
@@ -48,6 +53,7 @@ class MotorController extends Controller
 
         // Lakukan proses penyimpanan data motor baru
         $motor = Motor::create($validatedData);
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
         return redirect()->route('motor.index')->with('success', 'Motor berhasil ditambahkan.');
     }
 
@@ -70,6 +76,7 @@ class MotorController extends Controller
             'harga_motor' => $request->harga_motor,
             'deskripsi' => $request->deskripsi,
         ]);
+        Alert::success('Success', 'Data Berhasil Diedit');
         return redirect()->to('motor')->with('success', 'Motor berhasil diupdate.');
     }
 
@@ -77,6 +84,7 @@ class MotorController extends Controller
     public function destroy($id)
     {
         Motor::where('id', $id)->delete();
+        Alert::success('Success', 'Data Berhasil Dihapus');
         return redirect()->to('motor')->with('success', 'Motor berhasil dihapus.');
     }
 }

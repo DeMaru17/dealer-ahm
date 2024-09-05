@@ -39,7 +39,8 @@
                     <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required>{{$motor->deskripsi}}</textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{route('motor.index')}}" class="btn btn-danger">Kembali</a>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </div>
     </div>

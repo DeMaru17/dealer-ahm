@@ -34,11 +34,7 @@
                             <td>{{ $m->deskripsi }}</td>
                             <td class="d-flex align-items-center">
                                     <a href="{{ route('motor.edit', $m->id) }}" class="btn btn-primary btn-sm mr-2 ">Edit</a>
-                                    <form action="{{ route('motor.destroy', $m->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm mt-n" onclick="confirmDelete(event)">Delete</button>
-                                    </form>
+                                    <a href="{{ route('motor.destroy', $m->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                 
                             </td>  
                         </tr>

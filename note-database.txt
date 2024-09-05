@@ -7,15 +7,27 @@ deskripsi
 
 
 database gambar motor:
-id 
+id
+id_motor
+gambar_produk
+gambar_carousel1
+gambar_carousel2
+gambar_carousel3
 gambar 1
 gambar 2
 gambar 3
+gambar 4
+gambar 5
+gambar 6
+gambar 7
+gambar 8
+
 
 
 
 database spesifikasi dimensi:
 id
+id_motor
 panjangxlebarxtinggi
 jarak sumbu roda
 jarak terendah ke tanah
@@ -25,6 +37,7 @@ berat kosong
 
 database spesifikasi mesin:
 id
+id_motor
 tipe mesin
 tipe transmisi
 tipe kopling
@@ -44,6 +57,7 @@ jenis pelumas
 
 database rangka
 id
+id_motor
 tipe suspensi depan
 tipe  suspensi belakang
 ukuran ban depan
@@ -53,11 +67,13 @@ tipe rem belakang
 
 database kapasitas
 id
+id_motor
 kapasitas tangki bahan bakar
 kapasitas minyak pelumas
 
 database kelistrikan
 id
+id_motor
 tipe baterai atau aki
 sistem pengapian
 tipe busi

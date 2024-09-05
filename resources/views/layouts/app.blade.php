@@ -80,6 +80,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
 
 
     <!--::header part start::-->
@@ -149,6 +151,25 @@
             $('#nama_motor').html(option);
             }
         });
+    });
+
+    // Tambahkan event listener pada input file
+    $('input[type="file"]').on('change', function() {
+     // Ambil id dari input file
+    var id = $(this).attr('id');
+    // Ambil file yang diupload
+    var file = $(this).prop('files')[0];
+    // Buat reader untuk membaca file
+    var reader = new FileReader();
+    // Tambahkan event listener pada reader
+    reader.onload = function(e) {
+    // Ambil hasil pembacaan file
+    var result = e.target.result;
+    // Tampilkan hasil pembacaan file pada img preview
+    $('#' + id + '-preview').attr('src', result);
+    };
+    // Baca file
+    reader.readAsDataURL(file);
     });
 
     </script>
