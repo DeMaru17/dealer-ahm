@@ -11,6 +11,8 @@ use App\Models\Kapasitas;
 use App\Models\Kelistrikan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 
 class MotorController extends Controller
@@ -70,6 +72,9 @@ class MotorController extends Controller
     // Method untuk mengupdate data motor
     public function update(Request $request, $id)
     {
+
+        $motor = Motor::findOrFail($id);
+
         Motor::where('id', $id)->update([
             'nama_motor' => $request->nama_motor,
             'kategori' => $request->kategori,

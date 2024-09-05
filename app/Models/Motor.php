@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Motor extends Model
 {
@@ -19,6 +20,11 @@ class Motor extends Model
         'harga_motor',
         'deskripsi',
     ];
+
+    public function gambarMotor(): HasOne
+    {
+        return $this->hasOne(GambarMotor::class, 'id_motor', 'id');
+    }
 
     // Relasi ke tabel GambarMotor
     // public function gambarMotor()

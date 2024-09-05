@@ -109,14 +109,15 @@ class GambarMotorController extends Controller
             // Simpan setiap gambar di folder yang sesuai
             foreach ($images as $field => $image) {
                 if ($image) {
-                    // Buat nama file yang unik
+                    // Generate a unique filename
                     $filename = $image->getClientOriginalName();
-                    // Simpan gambar ke folder yang ditentukan
+                    // Save the image to the specified folder
                     $path = $image->storeAs($folder_path, $filename);
-                    // Hapus prefix 'public/' untuk menyimpan jalur relatif di database
+                    // Remove the 'public/' prefix to store the relative path in the database
                     $gambar_motor->{$field} = str_replace('public/', '', $path);
                 }
             }
+
 
             // Simpan instansi GambarMotor
             $gambar_motor->save();
@@ -179,10 +180,10 @@ class GambarMotorController extends Controller
         $folder_name = Str::slug($gambar->motor->nama_motor); // Use the motor name as the folder name
         $folder_path = 'public/image/' . $folder_name;
 
-        // Create the directory if it doesn't exist
-        if (!Storage::exists($folder_path)) {
-            Storage::makeDirectory($folder_path);
-        }
+        // // Create the directory if it doesn't exist
+        // if (!Storage::exists($folder_path)) {
+        //     Storage::makeDirectory($folder_path);
+        // }
 
         // Get the uploaded images
         $images = [
