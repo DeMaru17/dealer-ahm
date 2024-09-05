@@ -30,7 +30,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                     <a class="dropdown-item" href="{{route('motor.index')}}">Tambah Motor</a>
                                     <a class="dropdown-item" href="{{{route('gambar-motor.index')}}}">Gambar Motor</a>
-                                    <a class="dropdown-item" href="single-blog.html">Dimensi Motor</a>
+                                    <a class="dropdown-item" href="{{route('dimensi.index')}}">Dimensi Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Mesin Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Rangka Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Kapasitas Motor</a>

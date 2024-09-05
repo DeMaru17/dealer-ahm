@@ -26,6 +26,11 @@ class Motor extends Model
         return $this->hasOne(GambarMotor::class, 'id_motor', 'id');
     }
 
+    public function dimensiMotor(): HasOne
+    {
+        return $this->hasOne(SpesifikasiDimensi::class, 'id_motor', 'id');
+    }
+
     // Relasi ke tabel GambarMotor
     // public function gambarMotor()
     // {
