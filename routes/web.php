@@ -28,5 +28,7 @@ Route::middleware([CheckAuth::class])->group(function () {
     Route::resource('gambar-motor', \App\Http\Controllers\GambarMotorController::class);
     // dimensi motor routes
     Route::resource('dimensi',  \App\Http\Controllers\DimensiMotorController::class);
+    // spesifikasi mesin motor routes
+    Route::resource('mesin', \App\Http\Controllers\MesinMotorController::class);
 });
 Route::get('get-motor-by-kategori', [\App\Http\Controllers\GambarMotorController::class, 'getMotorByKategori'])->name('get-motor-by-kategori');

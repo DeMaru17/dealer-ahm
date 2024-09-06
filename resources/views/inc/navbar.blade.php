@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light ">
-                    <a class="navbar-brand" href="{{route('dashboard.index')}}"> 
+                    <a class="navbar-brand" href="{{route('dashboard.index')}}">
                         <img style="width: 50px; height: 50px;" src="{{asset('template/img/honda-logo-png.png')}}" alt="logo">
                         <span><b style="color: rgba(200,11,11,255)">Albi Honda Motor</b></span>
                     </a>
@@ -31,7 +31,7 @@
                                     <a class="dropdown-item" href="{{route('motor.index')}}">Tambah Motor</a>
                                     <a class="dropdown-item" href="{{{route('gambar-motor.index')}}}">Gambar Motor</a>
                                     <a class="dropdown-item" href="{{route('dimensi.index')}}">Dimensi Motor</a>
-                                    <a class="dropdown-item" href="single-blog.html">Mesin Motor</a>
+                                    <a class="dropdown-item" href="{{route('mesin.index')}}">Mesin Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Rangka Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Kapasitas Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Kelistrikan Motor</a>
