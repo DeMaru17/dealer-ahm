@@ -15,6 +15,11 @@ class MesinMotorController extends Controller
     public function index()
     {
         $mesin = SpesifikasiMesin::with('motor')->get();
+
+        $title = 'Delete Data!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('mesin-motor.index', compact('mesin'));
     }
 
@@ -34,7 +39,7 @@ class MesinMotorController extends Controller
     {
         $existingMesinMotor = SpesifikasiMesin::where('id_motor', $request->input('nama_motor'))->first();
 
-        if (!$existingMesinMotor){
+        if (!$existingMesinMotor) {
             $request->validate([
                 'tipe_mesin' => 'nullable',
                 'tipe_transmisi' => 'nullable',
@@ -49,8 +54,8 @@ class MesinMotorController extends Controller
                 'pengapian' => 'nullable',
                 'tipe_pendingin' => 'nullable',
                 'perbandingan_kompresi' => 'nullable',
-                'pola_perpindahan_gigi'=> 'nullable',
-                'jenis_pelumas'=> 'nullable',
+                'pola_perpindahan_gigi' => 'nullable',
+                'jenis_pelumas' => 'nullable',
             ]);
 
             $data['id_motor'] = $request->input('nama_motor');
@@ -103,7 +108,46 @@ class MesinMotorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $mesin = SpesifikasiMesin::with('motor')->findOrFail($id);
+
+        $request->validate([
+            'tipe_mesin' => 'nullable',
+            'tipe_transmisi' => 'nullable',
+            'tipe_kopling' => 'nullable',
+            'tipe_starter' => 'nullable',
+            'diameterxlangkah' => 'nullable',
+            'volume_langkah' => 'nullable',
+            'daya_maksimum' => 'nullable',
+            'torsi_maksimum' => 'nullable',
+            'busi' => 'nullable',
+            'sistem_bahan_bakar' => 'nullable',
+            'pengapian' => 'nullable',
+            'tipe_pendingin' => 'nullable',
+            'perbandingan_kompresi' => 'nullable',
+            'pola_perpindahan_gigi' => 'nullable',
+            'jenis_pelumas' => 'nullable',
+        ]);
+
+        $data['id_motor'] = $mesin->id_motor;
+        $data['tipe_mesin'] = $request->input('tipe_mesin');
+        $data['tipe_transmisi'] = $request->input('tipe_transmisi');
+        $data['tipe_kopling'] = $request->input('tipe_kopling');
+        $data['tipe_starter'] = $request->input('tipe_starter');
+        $data['diameterxlangkah'] = $request->input('diameterxlangkah');
+        $data['volume_langkah'] = $request->input('volume_langkah');
+        $data['daya_maksimum'] = $request->input('daya_maksimum');
+        $data['torsi_maksimum'] = $request->input('torsi_maksimum');
+        $data['busi'] = $request->input('busi');
+        $data['sistem_bahan_bakar'] = $request->input('sistem_bahan_bakar');
+        $data['pengapian'] = $request->input('pengapian');
+        $data['tipe_pendingin'] = $request->input('tipe_pendingin');
+        $data['perbandingan_kompresi'] = $request->input('perbandingan_kompresi');
+        $data['pola_perpindahan_gigi'] = $request->input('pola_perpindahan_gigi');
+        $data['jenis_pelumas'] = $request->input('jenis_pelumas');
+
+        $mesin->update($data);
+        Alert::success('Success', 'Data Berhasil Diupdate');
+        return redirect()->route('mesin.index');
     }
 
     /**
@@ -111,6 +155,8 @@ class MesinMotorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        SpesifikasiMesin::where('id', $id)->delete();
+        Alert::success('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('mesin.index');
     }
 }
