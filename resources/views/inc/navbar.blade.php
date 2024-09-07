@@ -32,7 +32,7 @@
                                     <a class="dropdown-item" href="{{{route('gambar-motor.index')}}}">Gambar Motor</a>
                                     <a class="dropdown-item" href="{{route('dimensi.index')}}">Dimensi Motor</a>
                                     <a class="dropdown-item" href="{{route('mesin.index')}}">Mesin Motor</a>
-                                    <a class="dropdown-item" href="single-blog.html">Rangka Motor</a>
+                                    <a class="dropdown-item" href="{{route('rangka.index')}}">Rangka Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Kapasitas Motor</a>
                                     <a class="dropdown-item" href="single-blog.html">Kelistrikan Motor</a>
                                 </div>

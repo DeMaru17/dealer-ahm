@@ -63,7 +63,7 @@ class MesinMotorController extends Controller
             $data['tipe_transmisi'] = $request->input('tipe_transmisi');
             $data['tipe_kopling'] = $request->input('tipe_kopling');
             $data['tipe_starter'] = $request->input('tipe_starter');
-            $data['diameterxlangkah'] = $request->input('diameterxlangkah');
+            $data['diameter_x_langkah'] = $request->input('diameterxlangkah');
             $data['volume_langkah'] = $request->input('volume_langkah');
             $data['daya_maksimum'] = $request->input('daya_maksimum');
             $data['torsi_maksimum'] = $request->input('torsi_maksimum');
@@ -133,7 +133,7 @@ class MesinMotorController extends Controller
         $data['tipe_transmisi'] = $request->input('tipe_transmisi');
         $data['tipe_kopling'] = $request->input('tipe_kopling');
         $data['tipe_starter'] = $request->input('tipe_starter');
-        $data['diameterxlangkah'] = $request->input('diameterxlangkah');
+        $data['diameter_x_langkah'] = $request->input('diameterxlangkah');
         $data['volume_langkah'] = $request->input('volume_langkah');
         $data['daya_maksimum'] = $request->input('daya_maksimum');
         $data['torsi_maksimum'] = $request->input('torsi_maksimum');

@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                     <label for="harga_motor">Diameter x Langkah</label>
-                    <input type="text" class="form-control" id="diameterxlangkah" name="diameterxlangkah" value="{{$mesin->diameterxlangkah}}" >
+                    <input type="text" class="form-control" id="diameterxlangkah" name="diameterxlangkah" value="{{$mesin->diameter_x_langkah}}" >
                 </div>
 
                 <div class="form-group">
