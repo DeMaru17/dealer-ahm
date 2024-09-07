@@ -29,6 +29,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                     <a class="dropdown-item" href="{{route('motor.index')}}">Tambah Motor</a>
+                                    <a class="dropdown-item" href="{{route('series.index')}}">Series Motor</a>
                                     <a class="dropdown-item" href="{{{route('gambar-motor.index')}}}">Gambar Motor</a>
                                     <a class="dropdown-item" href="{{route('dimensi.index')}}">Dimensi Motor</a>
                                     <a class="dropdown-item" href="{{route('mesin.index')}}">Mesin Motor</a>

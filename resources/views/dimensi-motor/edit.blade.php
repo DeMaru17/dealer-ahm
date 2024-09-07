@@ -53,7 +53,7 @@
                     <input type="text" class="form-control" id="berat_kosong" name="berat_kosong" value="{{$dimensi->berat_kosong}}" >
                 </div>
 
-                <a href="{{route('motor.index')}}" class="btn btn-danger">Kembali</a>
+                <a href="{{route('dimensi.index')}}" class="btn btn-danger">Kembali</a>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>

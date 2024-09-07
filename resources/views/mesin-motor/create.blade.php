@@ -5,7 +5,7 @@
 <div class="container mt-5 pt-5">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Data Dimensi Motor</h4>
+            <h4 class="card-title">Tambah Data Mesin Motor</h4>
         </div>
         <div class="card-body">
             <form action="{{route('mesin.store')}}" method="POST">

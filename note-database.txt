@@ -5,6 +5,12 @@ kategori
 Harga motor
 deskripsi
 
+database series motor
+id
+id_motor
+nama series motor
+Harga
+
 
 database gambar motor:
 id
