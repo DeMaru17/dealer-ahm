@@ -34,5 +34,7 @@ Route::middleware([CheckAuth::class])->group(function () {
     Route::resource('rangka', \App\Http\Controllers\RangkaController::class);
     // Kapasitas routes
     Route::resource('kapasitas', \App\Http\Controllers\KapasitasController::class);
+    // kelistrikan routes
+    Route::resource('kelistrikan', \App\Http\Controllers\KelistrikanController::class);
 });
 Route::get('get-motor-by-kategori', [\App\Http\Controllers\GambarMotorController::class, 'getMotorByKategori'])->name('get-motor-by-kategori');

@@ -4,7 +4,7 @@
 <div class="container mt-5 pt-5">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Data Rangka Motor</h4>
+            <h4 class="card-title">Edit Data Kapasitas Motor</h4>
         </div>
         <div class="card-body">
             <form action="{{route('kapasitas.update', $kapasitas->id)}}" method="POST">

@@ -34,7 +34,7 @@
                                     <a class="dropdown-item" href="{{route('mesin.index')}}">Mesin Motor</a>
                                     <a class="dropdown-item" href="{{route('rangka.index')}}">Rangka Motor</a>
                                     <a class="dropdown-item" href="{{route('kapasitas.index')}}">Kapasitas Motor</a>
-                                    <a class="dropdown-item" href="single-blog.html">Kelistrikan Motor</a>
+                                    <a class="dropdown-item" href="{{route('kelistrikan.index')}}">Kelistrikan Motor</a>
                                 </div>
                             </li>
                             @endauth
