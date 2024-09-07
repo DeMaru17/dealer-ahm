@@ -115,7 +115,6 @@ class RangkaController extends Controller
             'sistem_pengereman' => 'nullable'
         ]);
 
-        $data['id_motor'] = $rangka->id_motor;
         $data['tipe_rangka'] = $request->input('tipe_rangka');
         $data['tipe_suspensi_depan'] = $request->input('tipe_suspensi_depan');
         $data['tipe_suspensi_belakang'] = $request->input('tipe_suspensi_belakang');

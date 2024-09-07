@@ -128,7 +128,6 @@ class MesinMotorController extends Controller
             'jenis_pelumas' => 'nullable',
         ]);
 
-        $data['id_motor'] = $mesin->id_motor;
         $data['tipe_mesin'] = $request->input('tipe_mesin');
         $data['tipe_transmisi'] = $request->input('tipe_transmisi');
         $data['tipe_kopling'] = $request->input('tipe_kopling');
