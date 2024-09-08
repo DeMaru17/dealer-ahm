@@ -56,7 +56,7 @@
                 <div class="product_list_slider owl-carousel">
                     @foreach ($motor->sortBy('id')->chunk(8) as $chunk)
                         <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
+                            <div class="row align-items-center">
                                 @foreach ($chunk as $m)
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
