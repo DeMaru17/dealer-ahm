@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light ">
-                    <a class="navbar-brand" href="{{route('dashboard.index')}}">
+                    <a class="navbar-brand" href="{{route('dashboard')}}">
                         <img style="width: 50px; height: 50px;" src="{{asset('template/img/honda-logo-png.png')}}" alt="logo">
                         <span><b style="color: rgba(200,11,11,255)">Albi Honda Motor</b></span>
                     </a>
@@ -16,7 +16,7 @@
                     <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('dashboard.index')}}">Home</a>
+                                <a class="nav-link" href="{{route('dashboard')}}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="">Product</a>
@@ -55,6 +55,7 @@
         </div>
     </div>
 </header>
+
 
 <script>
     function confirmLogout(event) {

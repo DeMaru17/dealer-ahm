@@ -21,6 +21,11 @@ class Motor extends Model
         'deskripsi',
     ];
 
+    public function series()
+    {
+        return $this->hasMany(SeriesMotor::class, 'motor_id', 'id');
+    }
+
     public function gambarMotor(): HasOne
     {
         return $this->hasOne(GambarMotor::class, 'id_motor', 'id');
@@ -30,6 +35,29 @@ class Motor extends Model
     {
         return $this->hasOne(SpesifikasiDimensi::class, 'id_motor', 'id');
     }
+
+    public function mesin(): HasOne
+    {
+    return $this->hasOne(SpesifikasiMesin::class, 'id_motor', 'id');
+    }
+
+    public function rangka(): HasOne
+    {
+    return $this->hasOne(Rangka::class, 'id_motor', 'id');
+    }
+
+    public function kapasitas(): HasOne
+    {
+        return $this->hasOne(Kapasitas::class, 'id_motor', 'id');
+    }
+
+    public function kelistrikan(): HasOne
+    {
+        return $this->hasOne(Kelistrikan::class, 'id_motor', 'id');
+    }
+
+
+
 
     // Relasi ke tabel GambarMotor
     // public function gambarMotor()

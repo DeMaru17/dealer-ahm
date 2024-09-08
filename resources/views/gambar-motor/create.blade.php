@@ -17,13 +17,15 @@
                     <label for="nama_motor">Kategori Motor</label>
                     <select class="form-control" name="kategori_motor" id="kategori_motor">
                         <option value="">Pilih Kategori Motor</option>
-                        @foreach ($motor as $m )
-                        <option value="{{$m->kategori}}">{{$m->kategori}}</option>
-                            
-                        @endforeach
+                        {{-- @foreach ($motor as $m ) --}}
+                        <option value="matic">Matic</option>
+                        <option value="sports">Sports</option>
+                        <option value="cub">Cub</option>
+
+                        {{-- @endforeach --}}
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="nama_motor">Nama Motor</label>
                     <select class="form-control" name="nama_motor" id="nama_motor">

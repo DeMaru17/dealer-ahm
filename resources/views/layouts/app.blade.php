@@ -32,9 +32,9 @@
         .main_menu {
         z-index: 1000; High value to stay on top */
         width: 100%;
-        
+
         }
-    
+
         /* Add padding to the body or margin to the top of the content */
         body {
         padding-top: 73px; /* Adjust this value to be slightly larger than the height of your navbar */
@@ -56,8 +56,8 @@
         }
 
         #carouselExampleIndicators {
-        width: 90%; /* Mengatur lebar carousel */
-        max-width: 1450px; /* Maksimal lebar carousel */
+        width: 95%; /* Mengatur lebar carousel */
+         max-width: 1500px; /* Maksimal lebar carousel */
         margin: auto; /* Memusatkan carousel */
         }
 
@@ -75,7 +75,7 @@
 
 
 
- 
+
     </style>
 </head>
 
@@ -87,19 +87,19 @@
     <!--::header part start::-->
     @include('inc.navbar')
     <!-- Header part end-->
-    
+
     <!-- banner part start-->
     {{-- @include('inc.banner') --}}
     @yield('content')
     <!-- banner part start-->
 
-    
+
 
     <!--::footer_part start::-->
     @include('inc.footer')
     <!--::footer_part end::-->
 
-   
+
 
     <!-- jquery plugins here-->
     <script src="{{asset('template/js/jquery-1.12.1.min.js')}}"></script>
@@ -133,7 +133,7 @@
 
 
     <script>
- 
+
         $('#kategori_motor').change(function(){
         let kategori_motor = $(this).val();
         $.ajax({
@@ -173,7 +173,7 @@
     });
 
     </script>
-    
+
 </body>
 
 </html>

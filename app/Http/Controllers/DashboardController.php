@@ -3,11 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Motor;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $motor = Motor::with('series', 'gambarMotor', 'rangka', 'mesin', 'dimensiMotor', 'kapasitas', 'kelistrikan')->get();
+
+        return view('dashboard.index', compact('motor'));
     }
+
+    public function detail(string $nama_motor)
+    {
+    $nama_motor = str_replace('-', ' ', $nama_motor);
+    $motor = Motor::where('nama_motor', $nama_motor)
+        ->with('series', 'gambarMotor', 'rangka', 'mesin', 'dimensiMotor', 'kapasitas', 'kelistrikan')
+        ->firstOrFail();
+
+    return view('dashboard.detail', compact('motor'));
+    }
+
 }

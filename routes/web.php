@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // Default routes
-Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 // Dashboard  routes
-Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
+Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
+Route::get('Motor/{nama_motor}/detail', [\App\Http\Controllers\DashboardController::class, 'detail'])->name('Motor.detail');
+
 
 // Login routes
 Route::get('login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
