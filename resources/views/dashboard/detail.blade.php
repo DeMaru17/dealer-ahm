@@ -32,35 +32,59 @@
         .btn-whatsapp:hover {
         background-color: #1E933F; /* Darker WhatsApp green color on hover */
         }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        table th, table td {
+        border: none;
+        padding: 10px;
+        text-align: left;
+        }
+
+        table th {
+        background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
   {{-- buat carousel disini --}}
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel1)}}" class="d-block w-100" alt="...">
+    @if($motor->gambarMotor->gambar_carousel1 || $motor->gambarMotor->gambar_carousel2 || $motor->gambarMotor->gambar_carousel3)
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        @if($motor->gambarMotor->gambar_carousel1)
+          <div class="carousel-item active">
+            <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel1)}}" class="d-block w-100" alt="...">
+          </div>
+        @endif
+        @if($motor->gambarMotor->gambar_carousel2)
+          <div class="carousel-item">
+            <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel2)}}" class="d-block w-100" alt="...">
+          </div>
+        @endif
+        @if($motor->gambarMotor->gambar_carousel3)
+          <div class="carousel-item">
+            <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel3)}}" class="d-block w-100" alt="...">
+          </div>
+        @endif
       </div>
-      <div class="carousel-item">
-        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel2)}}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel3)}}" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </button>
+      <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    {{-- @else
+      <p>No images available.</p> --}}
+    @endif
   </div>
    <!--================Single Product Area =================-->
    {{-- {{dd($motor)}} --}}
@@ -69,32 +93,15 @@
        <div class="row s_product_inner justify-content-between">
          <div class="col-lg-7 col-xl-7">
            <div class="product_slider_img">
-             <div id="vertical">
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_1)}}">
-                 <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_1)}}" />
-               </div>
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_2)}}">
-                 <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_2)}}" />
-               </div>
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_3)}}">
-                 <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_3)}}" />
-               </div>
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_4)}}">
-                 <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_4)}}" />
-               </div>
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_5)}}">
-                 <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_5)}}" />
-               </div>
-               <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_6)}}">
-                <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_6)}}" />
-              </div>
-              <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_7)}}">
-                <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_7)}}" />
-              </div>
-              <div data-thumb="{{asset('storage/'.$motor->gambarMotor->gambar_8)}}">
-                <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->gambar_8)}}" />
-              </div>
-             </div>
+            <div id="vertical">
+              @for($i = 1; $i <= 8; $i++)
+                @if($motor->gambarMotor->{'gambar_'.$i})
+                  <div data-thumb="{{asset('storage/'.$motor->gambarMotor->{'gambar_'.$i})}}">
+                    <img style="width: 450px; height:auto;" src="{{asset('storage/'.$motor->gambarMotor->{'gambar_'.$i})}}" />
+                  </div>
+                @endif
+              @endfor
+          </div>
            </div>
          </div>
          <div class="col-lg-5 col-xl-4">
@@ -107,8 +114,18 @@
                    <span>Kategori</span> : {{$motor->kategori}}</a>
                </li>
              </ul>
-             <hr>   
+             <hr>
              <table>
+              <strong>{{$motor->nama_motor}} Series</strong>
+              <span><hr></span>
+              @foreach($motor->series as $series)
+                <tr>
+                  <td style="width: 50%">{{ $series->nama_series }}</td>
+                  <td style="text-align: right;">Rp. {{ number_format($series->harga, 0, ',', '.') }}</td>
+                </tr>
+              @endforeach
+            </table>   
+             {{-- <table>
               <strong>{{$motor->nama_motor}} Series</strong>
               <span><hr></span>
               @foreach($motor->series as $series)
@@ -117,7 +134,7 @@
                       <td style="text-align: left; padding-left: 5px;"> Rp. {{ number_format($series->harga, 0, ',', '.') }}</td>
                   </tr>
               @endforeach
-          </table>
+          </table> --}}
              {{-- buat disini --}}
              {{-- <table>
               @foreach($motor->series as $series)
@@ -130,8 +147,7 @@
               @endforeach
              </table> --}}
              <div style="margin-top: 1rem;" align="center" class="card_area">
-               <a href="#" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
-             </div>
+              <a href="https://wa.me/{{$nomor_whatsapp}}?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20motor%20{{$motor->nama_motor}}" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
            </div>
          </div>
        </div>

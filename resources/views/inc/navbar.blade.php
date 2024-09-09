@@ -19,7 +19,7 @@
                                 <a class="nav-link" href="{{route('dashboard')}}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Product</a>
+                                <a class="nav-link" href="{{route('Product')}}">Product</a>
                             </li>
                             @auth
                             <li class="nav-item dropdown">

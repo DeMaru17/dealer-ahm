@@ -73,6 +73,19 @@
         padding: 10px; /* add some padding to the carousel item */
         }
 
+        .footer_part {
+        background-color: #16191a; /* or any other hex code for black */
+        }
+
+        .copyright_part {
+        background-color: #1c2021; /* or any other hex code for black */
+        }
+
+        .footer_part,
+        .copyright_part {
+        color: #fff; /* or any other hex code for white */
+        }
+
 
 
 
