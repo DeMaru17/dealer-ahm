@@ -4,8 +4,64 @@
 
 <head>
     <link rel="stylesheet" href="{{asset('template/css/lightslider.min.css')}}">
+    <style>
+      #carouselExampleIndicators {
+        width: 90vw; /* Mengatur lebar carousel */
+         max-width: 1150px; /* Maksimal lebar carousel */
+        margin: auto; /* Memusatkan carousel */
+        }
+
+        .carousel-inner img {
+        width: 100%; /* make the image full width of the carousel item */
+        height: auto; /* adjust the height to your liking */
+        object-fit: cover; /* make the image cover the entire carousel item */
+        border-radius: 10px; /* add some border radius to the image */
+        }
+
+        .btn-whatsapp {
+        background-color: #25D366; /* WhatsApp green color */
+        color: #FFFFFF; /* White text color */
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+  
+        }
+
+        .btn-whatsapp:hover {
+        background-color: #1E933F; /* Darker WhatsApp green color on hover */
+        }
+    </style>
 </head>
 <body>
+  {{-- buat carousel disini --}}
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel1)}}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel2)}}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{asset('storage/'.$motor->gambarMotor->gambar_carousel3)}}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
    <!--================Single Product Area =================-->
    {{-- {{dd($motor)}} --}}
    <div class="product_image_area section_padding">
@@ -43,7 +99,7 @@
          </div>
          <div class="col-lg-5 col-xl-4">
            <div class="s_product_text">
-             <h3>{{$motor->nama_motor}}</h3>
+             <h2 style="color: black">{{$motor->nama_motor}}</h2>
              <h2>{{ 'Rp. ' . number_format($motor->harga_motor, 0, ',', '.') }}</h2>
              <ul class="list">
                <li>
@@ -51,27 +107,30 @@
                    <span>Kategori</span> : {{$motor->kategori}}</a>
                </li>
              </ul>
-             <hr>
+             <hr>   
              <table>
-                @foreach($motor->series as $series)
-                <tr>
-                    <th>
-                        {{ $series->nama_series }}
-                    </th>
-                    <td style="padding-left: 90px">
-                        {{ 'Rp. ' . number_format($series->harga, 0, ',', '.') }}
-                    </td>
-                </tr>
-                @endforeach
-             </table>
-             <div style="margin-top: 1rem;" class="card_area d-flex justify-content-between align-items-center">
-               <div class="product_count">
-                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                 <input class="input-number" type="text" value="1" min="0" max="10">
-                 <span class="number-increment"> <i class="ti-plus"></i></span>
-               </div>
-               <a href="#" class="btn_3">add to cart</a>
-               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <strong>{{$motor->nama_motor}} Series</strong>
+              <span><hr></span>
+              @foreach($motor->series as $series)
+                  <tr>
+                      <td >{{ $series->nama_series }}</td>
+                      <td style="text-align: left; padding-left: 5px;"> Rp. {{ number_format($series->harga, 0, ',', '.') }}</td>
+                  </tr>
+              @endforeach
+          </table>
+             {{-- buat disini --}}
+             {{-- <table>
+              @foreach($motor->series as $series)
+                  <tr>
+                      <th colspan="2">{{ $series->nama_series }}</th>
+                  </tr>
+                  <tr>
+                      <td colspan="2">{{ 'Rp. ' . number_format($series->harga, 0, ',', '.') }}</td>
+                  </tr>
+              @endforeach
+             </table> --}}
+             <div style="margin-top: 1rem;" align="center" class="card_area">
+               <a href="#" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
              </div>
            </div>
          </div>
@@ -82,6 +141,7 @@
 
    <!--================Product Description Area =================-->
    <section class="product_description_area">
+    <h1 align="center" class="mb-5">Spesifikasi Motor {{$motor->nama_motor}}</h1>
      <div class="container">
        <ul class="nav nav-tabs" id="myTab" role="tablist">
          <li class="nav-item">

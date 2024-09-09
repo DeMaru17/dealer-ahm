@@ -56,7 +56,7 @@
         }
 
         #carouselExampleIndicators {
-        width: 95%; /* Mengatur lebar carousel */
+        width: 90vw; /* Mengatur lebar carousel */
          max-width: 1500px; /* Maksimal lebar carousel */
         margin: auto; /* Memusatkan carousel */
         }
