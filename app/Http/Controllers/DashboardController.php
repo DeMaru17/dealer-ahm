@@ -20,8 +20,10 @@ class DashboardController extends Controller
     $motor = Motor::where('nama_motor', $nama_motor)
         ->with('series', 'gambarMotor', 'rangka', 'mesin', 'dimensiMotor', 'kapasitas', 'kelistrikan')
         ->firstOrFail();
+    $gambar_motor = Motor::with('gambarMotor')->get();
+    $series = $motor->series;
 
-    return view('dashboard.detail', compact('motor'));
+    return view('dashboard.detail', compact('gambar_motor','motor','series'));
     }
 
 }

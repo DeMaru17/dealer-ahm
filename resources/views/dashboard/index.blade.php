@@ -60,7 +60,7 @@
                                 @foreach ($chunk as $m)
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
+                                            <img style="height:250px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
                                             <div class="single_product_text">
                                                 <h4>{{$m->nama_motor}}</h4>
                                                 <h6>Harga Mulai</h6>
