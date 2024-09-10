@@ -61,7 +61,7 @@
                           </li>
                       </ul>
                       <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="matic" role="tabpanel" aria-labelledby="matic-tab">
+                        <div class="tab-pane fade show active " id="matic" role="tabpanel" aria-labelledby="matic-tab">
                             @foreach ($motor->where('kategori', 'matic') as $m)
                                 <!-- display motor data for Matic tab -->
                                 <div class="col-lg-4 col-sm-6">
@@ -124,8 +124,8 @@
                                 <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
                                 <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
                             </div>
-                        </div>    
-                    </div>    
+                        </div>
+                    </div>
                     @endforeach
                     </div>
                     <div class="tab-pane fade show" id="sports" role="tabpanel" aria-labelledby="sports-tab">
@@ -140,8 +140,8 @@
                                     <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
                                     <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
                                 </div>
-                            </div>    
-                        </div>    
+                            </div>
+                        </div>
                         @endforeach
                         </div>
                 </div> --}}
@@ -254,7 +254,7 @@
         </div>
     </div>
 </section>
- 
+
 <script src="{{asset('template/js/jquery-1.12.1.min.js')}}"></script>
 <!-- popper js -->
 <script src="{{asset('template/js/popper.min.js')}}"></script>

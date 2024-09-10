@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <head>
     <link rel="stylesheet" href="{{asset('template/css/lightslider.min.css')}}">
     <style>
@@ -26,7 +27,7 @@
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
-  
+
         }
 
         .btn-whatsapp:hover {
@@ -110,8 +111,8 @@
              <h2>{{ 'Rp. ' . number_format($motor->harga_motor, 0, ',', '.') }}</h2>
              <ul class="list">
                <li>
-                 <a class="active" href="#">
-                   <span>Kategori</span> : {{$motor->kategori}}</a>
+                <a class="active" id="" href="{{ url('/Product#' . \Illuminate\Support\Str::slug($motor->kategori)) }}">
+                <span>Kategori</span> : {{$motor->kategori}}</a>
                </li>
              </ul>
              <hr>
@@ -124,7 +125,7 @@
                   <td style="text-align: right;">Rp. {{ number_format($series->harga, 0, ',', '.') }}</td>
                 </tr>
               @endforeach
-            </table>   
+            </table>
              {{-- <table>
               <strong>{{$motor->nama_motor}} Series</strong>
               <span><hr></span>

@@ -78,12 +78,12 @@
         }
 
         .copyright_part {
-        background-color: #1c2021; /* or any other hex code for black */
+        background-color: #c80b0b; /* or any other hex code for black */
         }
 
         .footer_part,
         .copyright_part {
-        color: #fff; /* or any other hex code for white */
+        color: #000000; /* or any other hex code for white */
         }
 
 
@@ -184,6 +184,8 @@
     // Baca file
     reader.readAsDataURL(file);
     });
+
+
 
     </script>
 

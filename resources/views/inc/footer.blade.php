@@ -3,81 +3,43 @@
         <div class="row justify-content-around">
             <div class="col-sm-6 col-lg-2">
                 <div class="single_footer_part">
-                    <h4>Top Products</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="">Managed Website</a></li>
-                        <li><a href="">Manage Reputation</a></li>
-                        <li><a href="">Power Tools</a></li>
-                        <li><a href="">Marketing Service</a></li>
+                    <h4 style="color: white">Kontak</h4>
+                    <ul style="color: white" class="list-unstyled">
+                        <li><a style="color: white" href="mailto:info@albihondamotor.com">info@albihondamotor.com</a></li>
+                        <li><a style="color: white" href="tel:+622122345678">+62 212 345 678</a></li>
+                        <li>Jl. Raya Jakarta-Bogor, Km. 34, Cibinong, Bogor, Indonesia</li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-2">
                 <div class="single_footer_part">
-                    <h4>Quick Links</h4>
+                    <h4 style="color: white">Motor Kategori</h4>
                     <ul class="list-unstyled">
-                        <li><a href="">Jobs</a></li>
-                        <li><a href="">Brand Assets</a></li>
-                        <li><a href="">Investor Relations</a></li>
-                        <li><a href="">Terms of Service</a></li>
+                        <li><a style="color: white" href="{{route('Product')}}">Matic</a></li>
+                        <li><a style="color: white" href="{{route('Product')}}">Sports</a></li>
+                        <li><a style="color: white" href="{{route('Product')}}">Cub</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-2">
+            <div class="col-sm-6 col-lg-3">
                 <div class="single_footer_part">
-                    <h4>Features</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="">Jobs</a></li>
-                        <li><a href="">Brand Assets</a></li>
-                        <li><a href="">Investor Relations</a></li>
-                        <li><a href="">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-2">
-                <div class="single_footer_part">
-                    <h4>Resources</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="">Guides</a></li>
-                        <li><a href="">Research</a></li>
-                        <li><a href="">Experts</a></li>
-                        <li><a href="">Agencies</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="single_footer_part">
-                    <h4>Newsletter</h4>
-                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping
-                    </p>
-                    <div id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="subscribe_form relative mail_part">
-                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                                class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = ' Email Address '">
-                            <button type="submit" name="submit" id="newsletter-submit"
-                                class="email_icon newsletter-submit button-contactForm">subscribe</button>
-                            <div class="mt-10 info"></div>
-                        </form>
-                    </div>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn_1 mt-3" style="background-color: #25d366; border-color: #25d366;">
+                        <i class="bi bi-whatsapp" style="font-size: 1.5rem; margin-right: 8px;"></i>Hubungi Kami
+                    </a>
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="copyright_part">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="copyright_text">
-                        <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                        <p align="right" style="color: white">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Albi Honda Motor</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                     <div class="footer_icon social_icon">
                         <ul class="list-unstyled">
                             <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
@@ -86,7 +48,7 @@
                             <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

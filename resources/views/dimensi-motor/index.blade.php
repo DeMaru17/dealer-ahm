@@ -36,15 +36,15 @@
                             <td class="d-flex align-items-center">
                                     <a href="{{ route('dimensi.edit', $sd->id) }}" class="btn btn-primary btn-sm mr-2 ">Edit</a>
                                     <a href="{{ route('dimensi.destroy', $sd->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
-                            </td>  
+                            </td>
                         </tr>
-                        @endforeach    
-                    
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-    
+
 @endsection
