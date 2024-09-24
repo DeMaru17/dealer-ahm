@@ -31,24 +31,14 @@
         </div>
 
     </div>
-    <div class="copyright_part">
+   <div class="copyright_part">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
                     <div class="copyright_text">
-                        <p align="right" style="color: white">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Albi Honda Motor</p>
+                        <p style="color: white">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Albi Honda Motor</p>
                     </div>
                 </div>
-                {{-- <div class="col-lg-4">
-                    <div class="footer_icon social_icon">
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                            <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-                        </ul>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>

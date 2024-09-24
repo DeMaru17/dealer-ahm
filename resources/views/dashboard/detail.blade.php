@@ -5,6 +5,22 @@
 
 <head>
     <link rel="stylesheet" href="{{asset('template/css/lightslider.min.css')}}">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
       #carouselExampleIndicators {
         width: 90vw; /* Mengatur lebar carousel */
@@ -19,20 +35,6 @@
         border-radius: 10px; /* add some border radius to the image */
         }
 
-        .btn-whatsapp {
-        background-color: #25D366; /* WhatsApp green color */
-        color: #FFFFFF; /* White text color */
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-
-        }
-
-        .btn-whatsapp:hover {
-        background-color: #1E933F; /* Darker WhatsApp green color on hover */
-        }
         table {
         border-collapse: collapse;
         width: 100%;
@@ -51,7 +53,7 @@
 </head>
 <body>
   {{-- buat carousel disini --}}
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
     @if($motor->gambarMotor->gambar_carousel1 || $motor->gambarMotor->gambar_carousel2 || $motor->gambarMotor->gambar_carousel3)
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -148,7 +150,9 @@
               @endforeach
              </table> --}}
              <div style="margin-top: 1rem;" align="center" class="card_area">
-              <a href="https://wa.me/{{$nomor_whatsapp}}?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20motor%20{{$motor->nama_motor}}" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20motor%20{{$motor->nama_motor}}" target="_blank" class="btn_1 mt-1" style="background-color: #25d366; border-color: #25d366;">
+                <i class="bi bi-whatsapp" style="font-size: 1.5rem; margin-right: 8px;"></i>Hubungi Kami
+              </a>
            </div>
          </div>
        </div>

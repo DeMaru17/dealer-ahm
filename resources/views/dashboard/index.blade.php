@@ -1,8 +1,19 @@
 @extends('layouts.app')
 @section('content')
 
+<head>
+    <style>
+        .btn_3:hover {
+        background-color: rgba(200, 11, 11, 0.8); /* adjust the opacity to your liking */
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+        }
+    </style>
+</head>
+
 {{-- Banner Section --}}
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -41,8 +52,87 @@
     </button>
   </div>
 
+<!-- Combined Section: Dealer Info, Highlight Features, and Promotions -->
+<section class="combined_section section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="section_tittle text-center">
+                    <h2>Informasi Dealer, Fitur Unggulan & Promo Spesial</h2>
+                    <p>Dapatkan informasi lengkap mengenai dealer kami, fitur unggulan kendaraan, dan promo spesial yang tersedia.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center">
+            <!-- Promo Information -->
+            <div class="col-md-4">
+                <div class="card dealer_info_card mb-4" style="border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <i class="bi bi-gift" style="font-size: 2rem; color: #ff6f61;"></i>
+                        </div>
+                        <h4 class="card-title">Skema Penjualan</h4>
+                        <p class="card-text">Pesan online Motor Honda impianmu dengan metode pembayaran cash atau kredit di Albi Honda Motor dan dapatkan diskon spesial.</p>
+                        <p class="card-text">Hubungi Kami Untuk Mendapatkan informasi diskon & promo pembelian motor baru</p>
+                        <h4 class="card-title mt-4">Syarat dan Ketentuan Berlaku</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Card: Alasan Kenapa Kami Mitra Dealer Tepat Untuk Anda -->
+            <div class="col-md-4">
+                <div class="card dealer_info_card mb-4" style="border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <i class="bi bi-check-circle" style="font-size: 2rem; color: #ff6f61;"></i>
+                        </div>
+                        {{-- <h4 class="card-title">Alasan Kenapa Kami Mitra Dealer Yang Tepat Untuk Anda</h4> --}}
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>
+                                <h5><strong>Proses Mudah & Cepat</strong></h5>
+                                <p>Proses pengajuan kredit yang cepat dan mudah, memudahkan Anda untuk mendapatkan motor impian tanpa ribet!</p>
+                                <a href="{{route('syarat-kredit')}}" class="btn_3 mt-3" style="background-color: rgba(200,11,11,255); color: white;">Cek Syarat Kredit</a>
+                            </li>
+                            <li>
+                                <h5 class="mt-4"><strong>Harga Negotiable</strong></h5>
+                                <p>Kami siap menawarkan harga terbaik yang sesuai dengan anggaran Anda, tanpa mengurangi kualitas layanan.</p>
+                            </li>
+                            <li>
+                                <h5 class="mt-4"><strong>Sales Berpengalaman</strong></h5>
+                                <p>Tim sales kami berpengalaman dan siap membantu Anda menemukan kendaraan yang paling sesuai dengan kebutuhan Anda.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area Coverage -->
+            <div class="col-md-4">
+                <div class="card dealer_info_card mb-4" style="border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <i class="bi bi-geo-alt" style="font-size: 2rem; color: #ff6f61;"></i>
+                        </div>
+                        <h4 class="card-title">Area Coverage</h4>
+                        <p class="card-text">Jabodetabek, Bandung, Surabaya, Medan, Makassar, Bali</p>
+                        <h4 class="card-title mt-4">Kontak Dealer</h4>
+                        <p class="card-text">Telepon: (021) 1234 5678</p>
+                        <p class="card-text">Email: dealer@example.com</p>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn_1 mt-3" style="background-color: #25d366; border-color: #25d366;">
+                            <i class="bi bi-whatsapp" style="font-size: 1.5rem; margin-right: 8px;"></i>Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+
     <!-- product_list start-->
-    <section class="product_list section_padding">
+    <section style="padding-bottom: 10px" class="product_list section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -78,61 +168,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 align-item-center text-center">
-                    <a  href="{{route('Product')}}" class="btn_3">Semua Produk</a>
+                <div class="col-lg-12 align-item-center text-center mb-4">
+                    <a  href="{{route('Product')}}"style="background-color: rgba(200,11,11,255); color:white; " class="btn_3">Semua Motor</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- product_list part start-->
 
-  <!-- Combined Section: Dealer Info, Highlight Features, and Promotions -->
-<section class="combined_section section_padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="section_tittle text-center">
-                    <h2>Informasi Dealer, Fitur Unggulan & Promo Spesial</h2>
-                    <p>Dapatkan informasi lengkap mengenai dealer kami, fitur unggulan kendaraan, dan promo spesial yang tersedia.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center justify-content-center">
-            <!-- promo Information -->
-            <div class="col-md-4">
-            <div class="card dealer_info_card mb-4" style="border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="card-body">
-                    <div class="icon mb-3">
-                        <i class="bi bi-gift" style="font-size: 2rem; color: #ff6f61;"></i>
-                    </div>
-                        <h4 class="card-title">Skema Penjualan</h4>
-                        <p class="card-text">Pesan online Motor Honda impianmu dengan metode pembayaran cash atau kredit di Albi Honda Motor dan dapatkan diskon spesial.</p>
-                        <p class="card-text">Hubungi Kami Untuk Mendapatkan informasi diskon & promo pembelian motor baru</p>
-                        <h4 class="card-title mt-4">Syarat dan Ketentuan Berlaku</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card dealer_info_card mb-4" style="border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                    <div class="card-body">
-                        <div class="icon mb-3">
-                            <i class="bi bi-geo-alt" style="font-size: 2rem; color: #ff6f61;"></i>
-                        </div>
-                        <h4 class="card-title">Area Coverage</h4>
-                        <p class="card-text">Jabodetabek, Bandung, Surabaya, Medan, Makassar, Bali</p>
-                        <h4 class="card-title mt-4">Kontak Dealer</h4>
-                        <p class="card-text">Telepon: (021) 1234 5678</p>
-                        <p class="card-text">Email: dealer@example.com</p>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="btn_1 mt-3" style="background-color: #25d366; border-color: #25d366;">
-                            <i class="bi bi-whatsapp" style="font-size: 1.5rem; margin-right: 8px;"></i>Hubungi Kami di WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Combined Section End -->
+
 
 
 
