@@ -28,6 +28,7 @@
                                 <a class="nav-link btn btn-xs" style="margin-top:20px ;background-color: rgba(200,11,11,255); color: #fff; padding: 1rem 0.5rem; font-size: 0.8rem;" href="">Download Pricelist</a>
                             </li>
                             
+                            
                             @auth
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
@@ -46,6 +47,13 @@
                                 </div>
                             </li>
                             @endauth
+                            <li class="nav-item">
+                                @if (Auth::check())
+                                    <div class="hearer_icon d-flex ml-auto mr-3" style="margin-top: 30px">
+                                        <a style="color: black" name="logout" id="logout" href="#" onclick="confirmLogout(event)">Logout</a>
+                                    </div>
+                                @endif
+                            </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0 ml-auto d-flex justify-content-center">
                             <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px; height: 38px; border-radius: 5px; padding: 10px; font-size: 14px;">
@@ -54,15 +62,7 @@
                             </button>
                         </form>
                     </div>
-                    {{-- @if (Auth::check())
-                        <div class="hearer_icon d-flex ml-auto mr-3">
-                            <a style="color: black" name="logout" id="logout" href="#" onclick="confirmLogout(event)">Logout</a>
-                        </div>
-                    @else
-                        <div class="hearer_icon d-flex ml-auto mr-3">
-                            <a style="color: black" name="login" id="login" href="{{ route('login') }}">Login</a>
-                        </div>
-                    @endif --}}
+                    
                 </nav>
             </div>
         </div>

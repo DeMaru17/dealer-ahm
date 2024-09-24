@@ -50,7 +50,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </button>
-  </div>
+</div>
 
 <!-- Combined Section: Dealer Info, Highlight Features, and Promotions -->
 <section class="combined_section section_padding">
@@ -174,7 +174,30 @@
             </div>
         </div>
     </section>
-    <!-- product_list part start-->
+    <!-- product_list part end-->
+
+    
+    <section style="padding-bottom: 10px" class="product_list section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center">
+                        <h2 align="center">Galeri Albi Honda Motor</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product_list_slider owl-carousel">
+                        <img src="{{asset('template/img/b1.jpg')}}" alt="">
+                        <img src="{{asset('template/img/b2.jpg')}}" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 
