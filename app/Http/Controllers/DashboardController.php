@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Motor;
+use App\Models\Galeri;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         $motor = Motor::with('series', 'gambarMotor', 'rangka', 'mesin', 'dimensiMotor', 'kapasitas', 'kelistrikan')->get();
+        $galeri = Galeri::all();
 
-        return view('dashboard.index', compact('motor'));
+        return view('dashboard.index', compact('motor','galeri'));
     }
 
     public function detail(string $nama_motor)
@@ -23,7 +25,7 @@ class DashboardController extends Controller
         $gambar_motor = Motor::with('gambarMotor')->get();
         $series = $motor->series;
 
-        $nomor_whatsapp = '6285888722935';
+       
 
         return view('dashboard.detail', compact('gambar_motor', 'motor', 'series', 'nomor_whatsapp'));
     }

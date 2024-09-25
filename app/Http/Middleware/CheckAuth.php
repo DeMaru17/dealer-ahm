@@ -17,7 +17,7 @@ class CheckAuth
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard');
         }
         return $next($request);
     }

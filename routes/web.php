@@ -42,5 +42,7 @@ Route::middleware([CheckAuth::class])->group(function () {
     Route::resource('kelistrikan', \App\Http\Controllers\KelistrikanController::class);
     // series motor routes
     Route::resource('series',  \App\Http\Controllers\SeriesMotorController::class);
+    // galeri routes
+    Route::resource('galeri', \App\Http\Controllers\GaleriController::class);
 });
 Route::get('get-motor-by-kategori', [\App\Http\Controllers\GambarMotorController::class, 'getMotorByKategori'])->name('get-motor-by-kategori');

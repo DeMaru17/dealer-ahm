@@ -189,8 +189,18 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product_list_slider owl-carousel">
-                        <img src="{{asset('template/img/b1.jpg')}}" alt="">
-                        <img src="{{asset('template/img/b2.jpg')}}" alt="">
+                        <div class="single_product_list_slider">
+                            <div class="row align-items-center">
+                                @foreach ($galeri as $g)
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="single_product_item">
+                                            <img style="border-radius:10px;" src="{{asset('storage/'.$g->foto)}}" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        
                     </div>
                     
                 </div>

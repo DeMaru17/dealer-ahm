@@ -86,6 +86,22 @@
         color: #000000; /* or any other hex code for white */
         }
 
+        footer {
+        position: relative;
+        margin-top: 50px; /* adjust the value to create some space between the content and the footer */
+        }
+
+        body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        }
+
+        footer {
+        margin-top: auto;
+        }
+
+        
         
 
 
