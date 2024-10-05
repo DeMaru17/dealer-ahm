@@ -9,6 +9,26 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transform: translateY(-2px);
         }
+
+        .best_product_slider {
+        display: flex;
+        justify-content: center; /* Centers the items horizontally */
+        }
+
+        .galeri {
+            display: flex;
+            justify-content: center; /* Centers the image within the item */
+            margin: 0 auto; /* Ensures the item itself is centered if flexbox doesn't cover it */
+        }
+
+       
+
+        .katalog img {
+            text-align: center; /* Ensure the content is centered horizontally */
+            display: block; /* Ensure the image behaves as a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
     </style>
 </head>
 
@@ -149,8 +169,10 @@
                                 <div class="row align-items-center">
                                     @foreach ($chunk as $m)
                                         <div class="col-lg-3 col-sm-6">
-                                            <div class="single_product_item">
+                                            <div class="single_product_item katalog">
+                                                @if($m->gambarMotor)
                                                 <img style="height:250px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
+                                                @endif
                                                 <div class="single_product_text">
                                                     <h4>{{$m->nama_motor}}</h4>
                                                     <h6>Harga Mulai</h6>
@@ -176,8 +198,8 @@
     </section>
     <!-- product_list part end-->
 
-    
-    <section style="padding-bottom: 10px" class="product_list section_padding">
+    {{-- Galeri --}}
+    <section class="product_list best_seller section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -186,27 +208,60 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row align-items-center justify-content-between">
                 <div class="col-lg-12">
-                    <div class="product_list_slider owl-carousel">
-                        <div class="single_product_list_slider">
-                            <div class="row align-items-center">
-                                @foreach ($galeri as $g)
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="single_product_item">
-                                            <img style="border-radius:10px;" src="{{asset('storage/'.$g->foto)}}" class="img-fluid" alt="">
-                                        </div>
-                                    </div>
-                                @endforeach
+                    <div class="best_product_slider owl-carousel">
+                        @foreach ($galeri as $g)
+                            <div class="single_product_item galeri">
+                                <img style="border-radius:10px; width:300px; height:auto;" src="{{asset('storage/'.$g->foto)}}" class="img-fluid" alt="">
                             </div>
-                        </div>
-                        
+                        @endforeach
                     </div>
-                    
                 </div>
             </div>
         </div>
     </section>
+    {{-- Galeri End --}}
+
+    {{-- Leasing --}}
+    
+    <section class="product_list best_seller section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center">
+                        <h2 align="center">Finance & Leasing Partners</h2>
+                        <h3  align="center">Banyak pilihan mitra kredit dengan harga fleksibel</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-12">
+                    <div class="best_product_slider owl-carousel">
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/ADIRA-FINANCE.jpg')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/fif.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/mandiri.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/mcf-maf.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/oto.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="single_product_item">
+                            <img style="border-radius:10px; width:700; height:400;" src="{{asset('storage/leasing/wom.png')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Leasing End --}}
 
 
 

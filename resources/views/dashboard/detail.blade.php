@@ -49,6 +49,13 @@
         table th {
         background-color: #f0f0f0;
         }
+
+        .katalog img {
+            text-align: center; /* Ensure the content is centered horizontally */
+            display: block; /* Ensure the image behaves as a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
     </style>
 </head>
 <body>
@@ -520,7 +527,7 @@
            <div class="best_product_slider owl-carousel">
             @foreach ($gambar_motor as $m)
 
-            <div class="single_product_item">
+            <div class="single_product_item katalog">
                 <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
                 <div class="single_product_text">
                     <h4>{{$m->nama_motor}}</h4>

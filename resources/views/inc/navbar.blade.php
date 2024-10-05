@@ -25,7 +25,7 @@
                                 <a class="nav-link" href="{{route('syarat-kredit')}}">Syarat Kredit</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-xs" style="margin-top:20px ;background-color: rgba(200,11,11,255); color: #fff; padding: 1rem 0.5rem; font-size: 0.8rem;" href="">Download Pricelist</a>
+                                <a target="blank" class="nav-link btn btn-xs" style="margin-top:20px ;background-color: rgba(200,11,11,255); color: #fff; padding: 1rem 0.5rem; font-size: 0.8rem;" href="{{ asset('storage/pricelist/pricelist-september.pdf') }}">Download Pricelist</a>
                             </li>
                             
                             
@@ -56,9 +56,10 @@
                                 @endif
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0 ml-auto d-flex justify-content-center">
-                            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px; height: 38px; border-radius: 5px; padding: 10px; font-size: 14px;">
-                            <button class="btn  my-2 my-sm-0" type="submit" style="height: 38px; border-radius: 5px; padding: 10px 20px; font-size: 14px; background-color: rgba(200,11,11,255); color: #fff;">
+                        <form class="form-inline my-2 my-lg-0 ml-auto d-flex justify-content-center" action="{{ route('motor.search') }}" method="post">
+                            @csrf
+                            <input class="form-control mr-2" type="search" name="query" placeholder="Search" aria-label="Search" style="width: 200px; height: 38px; border-radius: 5px; padding: 10px; font-size: 14px;">
+                            <button class="btn my-2 my-sm-0" type="submit" style="height: 38px; border-radius: 5px; padding: 10px 20px; font-size: 14px; background-color: rgba(200,11,11,255); color: #fff;">
                                 <i class="fas fa-search"></i>
                             </button>
                         </form>

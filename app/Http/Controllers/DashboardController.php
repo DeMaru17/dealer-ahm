@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $motor = Motor::with('series', 'gambarMotor', 'rangka', 'mesin', 'dimensiMotor', 'kapasitas', 'kelistrikan')->get();
         $galeri = Galeri::all();
 
-        return view('dashboard.index', compact('motor','galeri'));
+        return view('dashboard.index', compact('motor', 'galeri'));
     }
 
     public function detail(string $nama_motor)
@@ -25,9 +25,9 @@ class DashboardController extends Controller
         $gambar_motor = Motor::with('gambarMotor')->get();
         $series = $motor->series;
 
-       
 
-        return view('dashboard.detail', compact('gambar_motor', 'motor', 'series', 'nomor_whatsapp'));
+
+        return view('dashboard.detail', compact('gambar_motor', 'motor', 'series'));
     }
 
     public function catalogue()

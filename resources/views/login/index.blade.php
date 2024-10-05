@@ -77,9 +77,7 @@
     </div>
 </section>
 
-    <!--::footer_part start::-->
-    @include('inc.footer')
-    <!--::footer_part end::-->
+    
 
     <!-- jquery plugins here-->
     <script src="{{asset('template/js/jquery-1.12.1.min.js')}}"></script>

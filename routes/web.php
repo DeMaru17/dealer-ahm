@@ -15,6 +15,7 @@ Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'inde
 Route::get('Motor/{nama_motor}/detail', [\App\Http\Controllers\DashboardController::class, 'detail'])->name('Motor.detail');
 Route::get('Product',  [\App\Http\Controllers\DashboardController::class, 'catalogue'])->name('Product');
 Route::get('Syarat-Kredit', [\App\Http\Controllers\SyaratKreditController::class,'index'])->name('syarat-kredit');
+Route::post('/search', [\App\Http\Controllers\MotorController::class, 'search'])->name('motor.search');
 
 
 // Login routes

@@ -92,4 +92,12 @@ class MotorController extends Controller
         Alert::success('Success', 'Data Berhasil Dihapus');
         return redirect()->to('motor')->with('success', 'Motor berhasil dihapus.');
     }
+
+    public function search(Request $request)
+    {
+    $query = $request->input('query');
+    $motors = Motor::where('nama_motor', 'LIKE', "%{$query}%")->get();
+
+    return view('dashboard.search_result', compact('motors'));
+    }
 }

@@ -29,6 +29,26 @@
 .nav-tabs .nav-item .nav-link:hover {
     background-color: white;
 }
+
+.tab-content .tab-pane {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single_product_item {
+    flex: 0 0 calc(33.33% - 20px); /* 3 produk per baris */
+    margin: 10px;
+}
+
+.single_product_item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
     </style>
 </head>
 
@@ -61,170 +81,66 @@
                           </li>
                       </ul>
                       <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active " id="matic" role="tabpanel" aria-labelledby="matic-tab">
-                            @foreach ($motor->where('kategori', 'matic') as $m)
-                                <!-- display motor data for Matic tab -->
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>{{$m->nama_motor}}</h4>
-                                            <h6>Harga Mulai</h6>
-                                            <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
-                                            <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                        <!-- Tab Matic -->
+                        <div class="tab-pane fade show active" id="matic" role="tabpanel" aria-labelledby="matic-tab">
+                            <div class="row">
+                                @foreach ($motor->where('kategori', 'matic') as $m)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="single_product_item">
+                                            <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
+                                            <div class="single_product_text">
+                                                <h4>{{$m->nama_motor}}</h4>
+                                                <h6>Harga Mulai</h6>
+                                                <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
+                                                <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="tab-pane fade show" id="sports" role="tabpanel" aria-labelledby="sports-tab">
-                            @foreach ($motor->where('kategori', 'sports') as $m)
-                                <!-- display motor data for Sports tab -->
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>{{$m->nama_motor}}</h4>
-                                            <h6>Harga Mulai</h6>
-                                            <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
-                                            <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                    
+                        <!-- Tab Sports -->
+                        <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="sports-tab">
+                            <div class="row">
+                                @foreach ($motor->where('kategori', 'sports') as $m)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="single_product_item">
+                                            <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
+                                            <div class="single_product_text">
+                                                <h4>{{$m->nama_motor}}</h4>
+                                                <h6>Harga Mulai</h6>
+                                                <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
+                                                <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="tab-pane fade show" id="cub" role="tabpanel" aria-labelledby="cub-tab">
-                            @foreach ($motor->where('kategori', 'cub') as $m)
-                                <!-- display motor data for Sports tab -->
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>{{$m->nama_motor}}</h4>
-                                            <h6>Harga Mulai</h6>
-                                            <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
-                                            <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                    
+                        <!-- Tab Cub -->
+                        <div class="tab-pane fade" id="cub" role="tabpanel" aria-labelledby="cub-tab">
+                            <div class="row">
+                                @foreach ($motor->where('kategori', 'cub') as $m)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="single_product_item">
+                                            <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
+                                            <div class="single_product_text">
+                                                <h4>{{$m->nama_motor}}</h4>
+                                                <h6>Harga Mulai</h6>
+                                                <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
+                                                <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+                    
 
-                {{-- <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="matic" role="tabpanel" aria-labelledby="matic-tab">
-                    <div class="row align-items-center latest_product_inner">
-                    @foreach ($motor as $m)
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
-                            <div class="single_product_text">
-                                <h4>{{$m->nama_motor}}</h4>
-                                <h6>Harga Mulai</h6>
-                                <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
-                                <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    </div>
-                    <div class="tab-pane fade show" id="sports" role="tabpanel" aria-labelledby="sports-tab">
-                        <div class="row align-items-center latest_product_inner">
-                        @foreach ($motor as $m)
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img style="height:200px; width:auto;" src="{{asset('storage/'.$m->gambarMotor->gambar_produk)}}" alt="">
-                                <div class="single_product_text">
-                                    <h4>{{$m->nama_motor}}</h4>
-                                    <h6>Harga Mulai</h6>
-                                    <h3><strong>{{ 'Rp. ' . number_format($m->harga_motor, 0, ',', '.') }}</strong></h3>
-                                    <a href="{{ route('Motor.detail', str_replace(' ', '-', $m->nama_motor)) }}" class="detail">Selengkapnya<i class="bi bi-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        </div>
-                </div> --}}
-                    {{-- <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_6.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_7.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
-                            <img src="img/product/product_8.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6"> --}}
-                        {{-- <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div> --}}
+                
                     <div class="col-lg-12">
                         <div class="pageination">
                             <nav aria-label="Page navigation example">
